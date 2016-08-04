@@ -8,10 +8,12 @@ class WorkoutsController < ApplicationController
 	def show
 		
 	end
+
 	def new
 		@workout = Workout.new
 		
 	end
+
 	def create
 		@workout = Workout.new(workout_params)
 		if @workout.save
@@ -20,13 +22,22 @@ class WorkoutsController < ApplicationController
 			render 'new'
 		end		
 	end
+
 	def edit
 		
 	end
+
 	def update
-		
+		if @workout.update(workout_params)
+			redirect_to @workout
+		else
+			render 'edit'
+		end		
 	end
+
 	def destroy
+		@workout.destroy
+		redirect_to root_path
 	end
 
 
