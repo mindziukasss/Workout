@@ -1,0 +1,6 @@
+= simple_form_for([@workout, @workout.exercises.build]) do |f|
+	= f.input :name, intput_html: { class: "form-control" }
+	= f.input :sets, intput_html: { class: "form-control" }
+	= f.input :reps, intput_html: { class: "form-control" }
+	%br/
+	= f.button :submit
